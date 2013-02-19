@@ -1,0 +1,26 @@
+{
+    "name": "WEBLAMP442-Assignment2, Option1 1",
+    "description": "WEBLAMP 442 Assignment 2, Option 1",
+    "authors": [
+        {
+            "name": "Kent Dietz",
+            "email": "kent.dietz@outlook.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "3.7.*@dev"
+    },
+    "require-dev": {
+        "monolog/monolog": "1.2.1"
+    },
+    "autoload": {
+        "classmap": [
+            "Src/",
+            "Tests/"
+        ]
+    },
+    "config": {
+        "vendor-dir" : "Vendors",
+        "vendor-bin" : "Vendors/bin"
+    }
+}

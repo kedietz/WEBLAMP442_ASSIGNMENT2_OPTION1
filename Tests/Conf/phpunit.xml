@@ -1,0 +1,9 @@
+<phpunit bootstrap="../Bootstrap.php"
+         verbose="true"
+    >
+    <testsuites>
+        <testsuite name="WEBLAMP442 Assignment 2, Option 1 Test Suite">
+            <directory>../Tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
