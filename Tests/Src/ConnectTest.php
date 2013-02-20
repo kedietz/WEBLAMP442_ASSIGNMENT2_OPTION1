@@ -227,10 +227,10 @@ class ConnectTest extends PHPUnit_Framework_TestCase {
     $connection = new Connect($config);
     $connection->connect();
 
-    $values = [['fred', 'flintstone', 'ff@bedrock.org'],
-               ['betty', 'rubble', 'betrub@coldmail.org'],
-               ['sylvester', 'slate', 'mrslate@slateinc.com'],
-               ['gary', 'granite', 'gargran@hollyrock.net']];
+    $values = array(array('fred', 'flintstone', 'ff@bedrock.org'),
+                    array('betty', 'rubble', 'betrub@coldmail.org'),
+                    array('sylvester', 'slate', 'mrslate@slateinc.com'),
+                    array('gary', 'granite', 'gargran@hollyrock.net'));
 
     $querybase = "INSERT INTO test (first_name, last_name, email_address) VALUES ";
     $count = count($values);
@@ -277,10 +277,10 @@ class ConnectTest extends PHPUnit_Framework_TestCase {
   }
 
   public function test_toggleConnection() {
-    $values = [['fred', 'flintstone', 'ff@bedrock.org'],
-               ['betty', 'rubble', 'betrub@coldmail.org'],
-               ['sylvester', 'slate', 'mrslate@slateinc.com'],
-               ['gary', 'granite', 'gargran@hollyrock.net']];
+    $values = array(array('fred', 'flintstone', 'ff@bedrock.org'),
+                    array('betty', 'rubble', 'betrub@coldmail.org'),
+                    array('sylvester', 'slate', 'mrslate@slateinc.com'),
+                    array('gary', 'granite', 'gargran@hollyrock.net'));
 
     $insertbase = "INSERT INTO test (first_name, last_name, email_address) VALUES ";
 
