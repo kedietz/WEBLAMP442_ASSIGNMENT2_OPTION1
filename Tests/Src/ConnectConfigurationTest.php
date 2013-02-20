@@ -96,6 +96,8 @@
       $this->assertEquals($expectedDBName, $config->getDBName());
       $this->assertEquals($expectedPort, $config->getPort());
       $this->assertEquals($expectedSocket, $config->getSocket());
+
+      unlink($iniFile);
     }
   }
 
