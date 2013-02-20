@@ -273,7 +273,106 @@ class ConnectTest extends PHPUnit_Framework_TestCase {
     }
 
     $connection->disconnect();
+  }
 
+  public function test_toggleConnection() {
+    $values = [['fred', 'flintstone', 'ff@bedrock.org'],
+               ['betty', 'rubble', 'betrub@coldmail.org'],
+               ['sylvester', 'slate', 'mrslate@slateinc.com'],
+               ['gary', 'granite', 'gargran@hollyrock.net']];
+
+    $insertbase = "INSERT INTO test (first_name, last_name, email_address) VALUES ";
+
+    // create config object
+    $config = new ConnectConfiguration("testconnect.ini");
+    $config->read();
+    $connection = new Connect($config);
+    $connection->connect();
+
+    // insert first row
+    $query = $insertbase ."('".$values[0][0]."','".$values[0][1]."','".$values[0][2]."')";
+    $id = $connection->insert($query);
+    $this->assertEquals($id, 1);
+
+    $result = $connection->select("SELECT * FROM test");
+    $this->assertEquals($result->num_rows, 1);
+    $this->assertEquals($result->field_count, 4);
+
+    while ($obj = $result->fetch_object()) {
+      $this->assertEquals($obj->first_name, $values[$obj->id - 1][0]);
+      $this->assertEquals($obj->last_name, $values[$obj->id-1][1]);
+      $this->assertEquals($obj->email_address, $values[$obj->id-1][2]);
+    }
+
+    $connection->disconnect();
+
+    $connection->connect();
+
+    // insert second row
+    $query = $insertbase ."('".$values[1][0]."','".$values[1][1]."','".$values[1][2]."')";
+    $id = $connection->insert($query);
+    $this->assertEquals($id, 2);
+
+    $result = $connection->select("SELECT * FROM test");
+    $this->assertEquals($result->num_rows, 2);
+    $this->assertEquals($result->field_count, 4);
+
+    while ($obj = $result->fetch_object()) {
+      $this->assertEquals($obj->first_name, $values[$obj->id - 1][0]);
+      $this->assertEquals($obj->last_name, $values[$obj->id-1][1]);
+      $this->assertEquals($obj->email_address, $values[$obj->id-1][2]);
+    }
+
+    $connection->disconnect();
+  }
+
+  public function test_INSERT() {
+    // create config object
+    $config = new ConnectConfiguration("testconnect.ini");
+    $config->read();
+    $connection = new Connect($config);
+    $connection->connect();
+
+
+
+    $connection->disconnect();
+  }
+
+  public function test_UPDATE() {
+    // create config object
+    $config = new ConnectConfiguration("testconnect.ini");
+    $config->read();
+    $connection = new Connect($config);
+    $connection->connect();
+
+
+
+    $connection->disconnect();
+
+  }
+
+  public function test_DELETE() {
+    // create config object
+    $config = new ConnectConfiguration("testconnect.ini");
+    $config->read();
+    $connection = new Connect($config);
+    $connection->connect();
+
+
+
+    $connection->disconnect();
+  }
+
+  public function test_SELECT() {
+    // create config object
+    $config = new ConnectConfiguration("testconnect.ini");
+    $config->read();
+    $connection = new Connect($config);
+    $connection->connect();
+
+
+
+    $connection->disconnect();
   }
 }
 
