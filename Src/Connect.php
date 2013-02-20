@@ -152,6 +152,8 @@ class Connect {
     if ($result != true) {
       throw new RuntimeException("INSERT failed. Error (".$connection->errno.")[".$connection->error."][".$query."]");
     }
+    
+    return $connection->insert_id;
   }
 }
 ?>

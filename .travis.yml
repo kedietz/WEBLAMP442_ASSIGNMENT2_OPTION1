@@ -11,7 +11,6 @@ services:
 before_script:
 - curl -s http://getcomposer.org/installer | php
 - php composer.phar update -v
-- mysql -e 'create database test;'
 
 script:
 - phpunit --coverage-text --configuration Tests/Conf/phpunit.xml Tests
