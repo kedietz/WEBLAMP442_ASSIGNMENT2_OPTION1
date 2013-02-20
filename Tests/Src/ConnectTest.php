@@ -86,7 +86,7 @@ class ConnectTest extends PHPUnit_Framework_TestCase {
     }
     try {
       $config = new ConnectConfiguration("testconnect.ini");
-      $configProps = ["host"=>"localhost", "username"=>"root", "password"=>"", "dbname"=>"testconnect"];
+      $configProps = array("host"=>"localhost", "username"=>"root", "password"=>"", "dbname"=>"testconnect");
       $config->write($configProps);
     } catch(Exception $e) {
       $this->assertFalse(3);
